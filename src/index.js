@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+//components
+import App from "./App";
+
 //store
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";

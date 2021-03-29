@@ -1,4 +1,4 @@
-
+import { ADD_TRUCK, DELETE_TRUCK, UPDATE_TRUCK } from './../actions/appActions';
 
 const initialState = {
     diner: {
