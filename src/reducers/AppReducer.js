@@ -10,27 +10,30 @@ const initialState = {
     operator: {
         username: '',
         password: '',
-        trucksOwned: [],
-    },
-    truck: {
-        img: '',
-        cuisineType: '',
-        customerRatings: [],
-        customerRatingAvg: null, //integer equal to the mean of the values in customer ratings
-        menu: [], //menuItems will be held in here when created
-        menuItems: {
-            itemName: '',
-            itemDescription: '',
-            itemPhotos: [], //array of images or url's
-            itemPrice: null, //integer
-            customerRatings: [],
-            customerRatingAvg: null,
-        },
-        currentLocation: {
-            location: '', //physical address
-            departureTime: '', //time
-            departureDate: '' //date
+        trucksOwned: [
+            {
+                truck: {
+                img: '',
+                cuisineType: '',
+                customerRatings: [],
+                customerRatingAvg: null, //integer equal to the mean of the values in customer ratings
+                menu: [], //menuItems will be held in here when created
+                menuItems: {
+                    itemName: '',
+                    itemDescription: '',
+                    itemPhotos: [], //array of images or url's
+                    itemPrice: null, //integer
+                    customerRatings: [],
+                    customerRatingAvg: null,
+                },
+                currentLocation: {
+                    location: '', //physical address
+                    departureTime: '', //time
+                    departureDate: '' //date
+                },
+            },
         }
+        ],
     },
 };
 
@@ -55,6 +58,9 @@ export const AppReducer = (state = initialState, action) => {
             return state;
 
         case UPDATE_OPERATOR_INFO:
+            return state;
+        
+        case ADD_TRUCK_TO_FAVORITES:
             return state;
        
         default:

@@ -15,7 +15,7 @@ const initialState = {
     }
 };
 
-export const AuthReducers = (state = initialState, action) => {
+export const AuthReducer = (state = initialState, action) => {
     switch(action.type){
         case DINER_SIGNED_UP:
             return state;
@@ -27,6 +27,9 @@ export const AuthReducers = (state = initialState, action) => {
             return state;
 
         case OPERATOR_LOGGED_IN:
+            return state;
+
+        case LOGOUT: 
             return state;
 
         default: 
