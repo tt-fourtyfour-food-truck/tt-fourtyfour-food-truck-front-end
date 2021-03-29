@@ -1,0 +1,5 @@
+ export const DINER_SIGNED_UP = "DINER_SIGNED_UP";
+ export const OPERATOR_SIGNED_UP = "OPERATOR_SIGNED_UP";
+ export const DINER_LOGGED_IN = "DINER_LOGGED_IN";
+ export const OPERATOR_LOGGED_IN = "OPERATOR_LOGGED_IN";
+ export const LOGOUT = "LOGOUT";
