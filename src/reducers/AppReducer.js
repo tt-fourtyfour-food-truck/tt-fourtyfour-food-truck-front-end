@@ -1,4 +1,4 @@
-import { ADD_TRUCK, DELETE_TRUCK, UPDATE_TRUCK } from './../actions/appActions';
+import { ADD_TRUCK, DELETE_TRUCK, UPDATE_TRUCK, CREATE_MENU_ITEM, UPDATE_MENU_ITEM, UPDATE_DINER_INFO, UPDATE_OPERATOR_INFO, ADD_TRUCK_TO_FAVORITES } from './../actions/appActions';
 
 const initialState = {
     diner: {
@@ -13,27 +13,27 @@ const initialState = {
         trucksOwned: [
             {
                 truck: {
-                img: '',
-                cuisineType: '',
-                customerRatings: [],
-                customerRatingAvg: null, //integer equal to the mean of the values in customer ratings
-                menu: [], //menuItems will be held in here when created
-                menuItems: {
-                    itemName: '',
-                    itemDescription: '',
-                    itemPhotos: [], //array of images or url's
-                    itemPrice: null, //integer
+                    img: '',
+                    cuisineType: '',
                     customerRatings: [],
-                    customerRatingAvg: null,
-                },
-                currentLocation: {
-                    location: '', //physical address
-                    departureTime: '', //time
-                    departureDate: '' //date
+                    customerRatingAvg: null, //integer equal to the mean of the values in customer ratings
+                    menu: [], //menuItems will be held in here when created
+                    menuItems: {
+                        itemName: '',
+                        itemDescription: '',
+                        itemPhotos: [], //array of images or url's
+                        itemPrice: null, //integer
+                        customerRatings: [],
+                        customerRatingAvg: null,
+                    },
+                    currentLocation: {
+                        location: '', //physical address
+                        departureTime: '', //time
+                        departureDate: '' //date
                 },
             },
         }
-        ],
+    ],
     },
 };
 
