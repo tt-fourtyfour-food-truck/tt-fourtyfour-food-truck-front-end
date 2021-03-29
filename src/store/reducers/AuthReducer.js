@@ -1,4 +1,4 @@
-import { DINER_SIGNED_UP, OPERATOR_SIGNED_UP, DINER_LOGGED_IN, OPERATOR_LOGGED_IN, LOGOUT } from './../actions/authActions';
+import { DINER_SIGNED_UP, OPERATOR_SIGNED_UP, DINER_LOGGED_IN, OPERATOR_LOGGED_IN, LOGOUT } from '../../store';
 
 const initialState = {
     diner: {
