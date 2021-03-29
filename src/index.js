@@ -9,7 +9,7 @@ import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
-import rootReducer from "./reducers";
+import { rootReducer } from "./store";
 
 const middleware = applyMiddleware(thunk, logger);
 const store = createStore(rootReducer, middleware);
