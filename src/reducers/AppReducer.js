@@ -30,10 +30,10 @@ const initialState = {
                         location: '', //physical address
                         departureTime: '', //time
                         departureDate: '' //date
+                    },
                 },
-            },
-        }
-    ],
+            }
+        ],
     },
 };
 
