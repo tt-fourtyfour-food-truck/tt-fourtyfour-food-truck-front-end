@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import DinerLogin from './components/diner/DinerLogin';
+import OperatorLogin from './components/operator/OperatorLogin';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
@@ -10,8 +12,8 @@ function App() {
           <Route exact path='/' />
 
           {/* login routes */}
-          <Route path='/diner/login' />
-          <Route path='/operator/login' />
+          <Route path='/diner/login' component={DinerLogin} />
+          <Route path='/operator/login' component={OperatorLogin} />
 
           {/* signup routes */}
           <Route path='/diner/register' />
