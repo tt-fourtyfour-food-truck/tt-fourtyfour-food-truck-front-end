@@ -32,3 +32,14 @@ export const deleteTruck = () => dispatch => {
             dispatch({  });
         })
 }
+
+export const updateTruck = () => dispatch => {
+    axiosWithAuth()
+        .put(``)
+        .then(res => {
+            dispatch({ type: UPDATE_TRUCK });
+        })
+        .catch(err => {
+            dispatch({  });
+        })
+}
