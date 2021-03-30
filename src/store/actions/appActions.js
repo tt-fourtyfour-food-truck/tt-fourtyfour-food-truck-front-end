@@ -33,13 +33,36 @@ export const deleteTruck = () => dispatch => {
         })
 }
 
-export const updateTruck = () => dispatch => {
+export const updateTruck = (/* tuckToEdit */) => dispatch => {
     axiosWithAuth()
-        .put(``)
+        .put(``, /* truckToEdit */)
         .then(res => {
             dispatch({ type: UPDATE_TRUCK });
         })
         .catch(err => {
             dispatch({  });
         })
+}
+
+export const createMenuItem = (/* newItem */) => dispatch => {
+    axiosWithAuth()
+        .post(``)
+        .then(res => {
+            dispatch({ type: CREATE_MENU_ITEM });
+        })
+        .catch(err => {
+            dispatch({  });
+        })
+}
+
+export const updateMenuItem = (/* updatedMenuItem */) => dispatch => {
+    axiosWithAuth()
+        .put(``, /* updatedMenuItem */)
+        .then(res => {
+            dispatch({ type: UPDATE_MENU_ITEM });
+        })
+        .catch(err => {
+            dispatch({  });
+        });
+
 }
