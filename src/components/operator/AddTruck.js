@@ -11,6 +11,7 @@ const AddTruck = props => {
     const handleSumbit = e => {
         e.preventDefault();
         props.addTruck(/* newTruck */);
+        // props.history.push(``); // push to dashboard
     }
 
     return (
