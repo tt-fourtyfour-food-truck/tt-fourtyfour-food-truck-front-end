@@ -34,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2)
   }
 }));
+
+
 const initialValues = {
   username: "",
   password: "",
@@ -42,7 +44,8 @@ const initialValues = {
   trucks: []
 };
 
- function DinerSignUp() {
+//
+ function DinerSignup() {
   const classes = useStyles();
   const [truckForm, setTruckForm] = useState("");
   const [values, setValues] = useState(initialValues);
@@ -217,13 +220,8 @@ const initialValues = {
 const mapStateToProps = (state) =>{
     console.log('MSTP inside DinerSignup', state);
     return {
-        diner: {
-            username: '',
-            password: '',
-            currentLocation: '',
-            favoriteTrucks: [],
-        }
+        diner: state.auth.diner
     }
 }
 
-export default connect(mapStateToProps)(DinerSignup)
+export default connect(mapStateToProps, {})(DinerSignup)
