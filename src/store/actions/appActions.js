@@ -15,9 +15,20 @@ export const addTruck = newTruck => dispatch => {
     axiosWithAuth()
         .post(``, newTruck)
         .then(res => {
-            dispatch({ type: ADD_TRUCK, payload: newTruck })
+            dispatch({ type: ADD_TRUCK, payload: newTruck });
         })
         .catch(err => {
             dispatch({  });
         });
+}
+
+export const deleteTruck = () => dispatch => {
+    axiosWithAuth()
+        .delete(``)
+        .then(res => {
+            dispatch({ type: DELETE_TRUCK });
+        })
+        .catch(err => {
+            dispatch({  });
+        })
 }
