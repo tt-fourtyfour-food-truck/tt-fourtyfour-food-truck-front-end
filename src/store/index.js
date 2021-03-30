@@ -1,7 +1,11 @@
 //actions
 export { 
     //authActions
-    DINER_SIGNED_UP, OPERATOR_SIGNED_UP, DINER_LOGGED_IN, OPERATOR_LOGGED_IN, LOGOUT,
+    DINER_SIGNED_UP, dinerSignedUp, 
+    OPERATOR_SIGNED_UP, operatorSignedUp,
+    DINER_LOGGED_IN, dinerLoggedIn,
+    OPERATOR_LOGGED_IN, operatorLoggedIn,
+    LOGOUT, logout,
     
     //appActions
     ADD_TRUCK, addTruck,
