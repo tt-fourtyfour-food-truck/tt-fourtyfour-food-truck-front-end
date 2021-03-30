@@ -76,7 +76,9 @@ function MarketingPage() {
           <Grid className={classes.navLinks}>
             <span className={classes.span}><Link className={classes.a} to='/diner/login'>Diner Login</Link></span>
             <span className={classes.span}><Link className={classes.a} to='/operator/login'>Operator Login</Link></span>
-            <span className={classes.span}><Link className={classes.a} to='/signup'>Signup</Link></span>
+            <span className={classes.span}><Link className={classes.a} to='/diner/register'>Diner Signup</Link></span>
+            <span className={classes.span}><Link className={classes.a} to='/operator/register'>Operator Signup</Link></span>
+
           </Grid>
         </nav>
       </header>
