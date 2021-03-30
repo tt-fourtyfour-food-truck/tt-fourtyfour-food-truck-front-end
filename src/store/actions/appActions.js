@@ -66,3 +66,37 @@ export const updateMenuItem = (/* updatedMenuItem */) => dispatch => {
         });
 
 }
+
+export const updateDinerInfo = (/* id ? */) => dispatch => {
+    axiosWithAuth()
+        .put(``, /* id */)
+        .then(res => {
+            dispatch({ type: UPDATE_DINER_INFO })
+        })
+        .catch(err => {
+            dispatch({  });
+        });
+}
+
+export const updateOperatorInfo = (/* id ? */) => dispatch => {
+    axiosWithAuth()
+        .put(``, /* id */)
+        .then(res => {
+            dispatch({ type: UPDATE_OPERATOR_INFO })
+        })
+        .catch(err => {
+            dispatch({  });
+        });
+}
+
+export const addTruckToFavorites = (/* id ? */) => dispatch => {
+    axiosWithAuth()
+        .post(``, /* id */)
+        .then(res => {
+            dispatch({ type: ADD_TRUCK_TO_FAVORITES })
+        })
+        .catch(err => {
+            dispatch({  });
+        });
+}
+

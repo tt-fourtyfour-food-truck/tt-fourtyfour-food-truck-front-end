@@ -9,7 +9,9 @@ export {
     UPDATE_TRUCK, updateTruck,
     CREATE_MENU_ITEM, createMenuItem,
     UPDATE_MENU_ITEM, updateMenuItem, 
-    UPDATE_DINER_INFO, UPDATE_OPERATOR_INFO, ADD_TRUCK_TO_FAVORITES 
+    UPDATE_DINER_INFO, updateDinerInfo,
+    UPDATE_OPERATOR_INFO, updateOperatorInfo,
+    ADD_TRUCK_TO_FAVORITES, addTruckToFavorites 
 
 } from "./actions";
 
