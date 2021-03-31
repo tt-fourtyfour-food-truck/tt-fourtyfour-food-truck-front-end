@@ -1,10 +1,21 @@
 import React from 'react';
+
+//router
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import DinerLogin from './components/diner/DinerLogin';
-import OperatorLogin from './components/operator/OperatorLogin';
-import PrivateRoute from './components/PrivateRoute';
-import DinerSignup from './components/diner/DinerSignup';
+
+//components
 import MarketingPage from './components/MarketingPage';
+
+//private route
+import PrivateRoute from './components/PrivateRoute';
+
+//diner
+import DinerLogin from './components/diner/DinerLogin';
+import DinerSignup from './components/diner/DinerSignup';
+import DinerDashboard from "./components/diner/DinerDashboard";
+
+//operator
+import OperatorLogin from './components/operator/OperatorLogin';
 import AddTruck from './components/operator/AddTruck';
 import UpdateOperatorInfo from './components/operator/UpdateOperatorInfo';
 import AddMenuItem from './components/operator/AddMenuItem';
@@ -25,7 +36,7 @@ function App() {
           <Route path='/operator/register' />
 
           {/* diner private routes */}
-          <PrivateRoute path='/diner/dashboard' />
+          <PrivateRoute path='/diner/dashboard' component={DinerDashboard}/>
           <PrivateRoute path='/diner/update-info/:id' />
           
           {/* operator private routes */}
