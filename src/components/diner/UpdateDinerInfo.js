@@ -66,7 +66,7 @@ const initialHelperText = {
   password: ""
 };
 
-const UpdateDiner = () => {
+const UpdateDinerInfo = () => {
   const classes = useStyles();
 
   const [favoriteTrucks, setFavoriteTrucks] = React.useState("");
@@ -237,4 +237,4 @@ const UpdateDiner = () => {
   );
 };
 
-export default UpdateDiner;
+export default UpdateDinerInfo;
