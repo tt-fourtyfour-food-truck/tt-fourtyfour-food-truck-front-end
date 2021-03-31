@@ -1,11 +1,29 @@
 import React from 'react';
 
+//store
+import { connect } from "react-redux";
+
+// material-ui
+import { Card, Grid, Typography } from "@material-ui/core";
+
 const DinerDashboard = () => {
     return (
     <>
-    <h1>Diner DinerDashboard</h1>
+    <Typography>Diner DinerDashboard</Typography>
+    <Grid container direction="row" 
+    >
+        <Card>
+
+        </Card>
+    </Grid>
     </>
     );
 }
- 
-export default DinerDashboard;
+
+const mapStateToProps = state => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps)(DinerDashboard);

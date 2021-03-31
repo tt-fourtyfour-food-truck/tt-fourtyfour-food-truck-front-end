@@ -84,15 +84,8 @@ const DinerLogin = props => {
       values.username.match(/^\w{5,11}$/g) &&
       values.password.match(/^[.\S]{7,15}$/g)
     ) {
-      setValues(initialValues);
-      
-    //   userLoginSubmit(values);
-    //   action^^^
-    //   setTimeout(() => {
-    //     push("/diner/dashboard");
-    // }, 2000);
-      // console.log(values);
       props.dinerLoggedIn(values);
+      setValues(initialValues);
       setTimeout(() => {
         push("/diner/dashboard");
       }, 2000);
