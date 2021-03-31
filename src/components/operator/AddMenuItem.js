@@ -33,7 +33,7 @@ const initialValues = {
   image: ""
 };
 
-export default function SignUp() {
+const AddMenuItem = () => {
   const classes = useStyles();
   const [values, setValues] = useState(initialValues);
   const uploadedImage = React.useRef(null);
@@ -64,9 +64,7 @@ export default function SignUp() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (values.itemName.match(/^\w{5,11}$/g)) {
-    }
-    return;
+   
   };
 
   return (
@@ -159,3 +157,5 @@ export default function SignUp() {
     </Container>
   );
 }
+
+export default AddMenuItem;

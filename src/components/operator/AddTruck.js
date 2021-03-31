@@ -8,7 +8,7 @@ import { addTruck } from "../../store";
 
 const AddTruck = props => {
 
-    const handleSumbit = e => {
+    const handleSubmit = e => {
         e.preventDefault();
         props.addTruck(/* newTruck */);
         // props.history.push(``); // push to dashboard
@@ -16,7 +16,7 @@ const AddTruck = props => {
 
     return (
     <>
-    <form onSubmit={handleSumbit}>
+    <form onSubmit={handleSubmit}>
     </form>
     </>
     );
