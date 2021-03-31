@@ -18,6 +18,7 @@ import DinerDashboard from "./components/diner/DinerDashboard";
 import OperatorLogin from './components/operator/OperatorLogin';
 import AddTruck from './components/operator/AddTruck';
 import UpdateOperatorInfo from './components/operator/UpdateOperatorInfo';
+import AddMenuItem from './components/operator/AddMenuItem';
 
 function App() {
   return (
@@ -44,7 +45,7 @@ function App() {
           <PrivateRoute path='/operator/add-truck' component={AddTruck} />
           <PrivateRoute path='/operator/update-truck/:id' />
           <PrivateRoute path='/operator/update-info/:id' component={UpdateOperatorInfo} />
-          <PrivateRoute path='/operator/add-menuItem' />
+          <PrivateRoute path='/operator/add-menuItem' component={AddMenuItem} />
           <PrivateRoute path='/operator/update-menuItem/:id' />
 
         </Switch>
