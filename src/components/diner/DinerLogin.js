@@ -87,7 +87,7 @@ const DinerLogin = props => {
       props.dinerLoggedIn(values);
       setValues(initialValues);
       setTimeout(() => {
-        push("/diner/dashboard");
+        push(`/diner/dashboard`);
       }, 2000);
     } else {
       setValues(initialValues);

@@ -11,6 +11,12 @@ import {
 import { AccountCircle, Visibility, VisibilityOff } from "@material-ui/icons";
 import { useHistory } from 'react-router-dom';
 
+//action creators
+import { operatorLoggedIn } from "../../store";
+
+//store
+import { connect } from "react-redux";
+
 const useStyles = makeStyles({
   root: {
     flexFlow: "column wrap",
@@ -57,7 +63,7 @@ const initialHelperText = {
   password: ""
 };
 
-const OperatorLogin = () => {
+const OperatorLogin = props => {
   const classes = useStyles();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -80,8 +86,8 @@ const OperatorLogin = () => {
       values.username.match(/^\w{5,11}$/g) &&
       values.password.match(/^[.\S]{7,15}$/g)
     ) {
+      props.operatorLoggedIn(values);
       setValues(initialValues);
-      console.log(values);
     } else {
       setValues(initialValues);
       setHelperText({
@@ -175,4 +181,10 @@ const OperatorLogin = () => {
   );
 };
 
-export default OperatorLogin;
+const mapDispatchToProps = () => {
+  return {
+    operatorLoggedIn
+  }
+}
+
+export default connect(null, mapDispatchToProps())(OperatorLogin);

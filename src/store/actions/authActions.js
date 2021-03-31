@@ -30,7 +30,7 @@ export const operatorSignedUp = (/* newOperator */) => dispatch => {
 
 export const dinerLoggedIn = diner => dispatch => {
     axiosWithBaseURL()
-        .post(`/api/login`, diner)
+        .post(`/api/auth/login`, diner)
         .then(res => {
             console.log(res);
             // dispatch({ type: DINER_LOGGED_IN });
@@ -41,14 +41,16 @@ export const dinerLoggedIn = diner => dispatch => {
         });
 }
 
-export const operatorLoggedIn = (/* diner */) => dispatch => {
+export const operatorLoggedIn = operator => dispatch => {
     axiosWithBaseURL()
-        .post(``, /* diner */)
+        .post(`/api/auth/login`, operator)
         .then(res => {
-            dispatch({ type: OPERATOR_LOGGED_IN });
+            // dispatch({ type: OPERATOR_LOGGED_IN });
+            console.log(res);
         })
         .catch(err => {
-            dispatch({  });
+            // dispatch({  });
+            console.log(err);
         });
 }
     
