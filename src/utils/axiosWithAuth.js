@@ -7,6 +7,6 @@ export const axiosWithAuth = () => {
     headers: {
       Authorization: token,
     },
-    // baseURL: "",
+    baseURL: "https://tt44-food-truck-back-end.herokuapp.com",
   });
 };
