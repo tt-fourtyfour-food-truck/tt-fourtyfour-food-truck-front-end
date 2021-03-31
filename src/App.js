@@ -6,6 +6,7 @@ import PrivateRoute from './components/PrivateRoute';
 import DinerSignup from './components/diner/DinerSignup';
 import MarketingPage from './components/MarketingPage';
 import AddTruck from './components/operator/AddTruck';
+import UpdateOperatorInfo from './components/operator/UpdateOperatorInfo';
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
           <PrivateRoute path='/operator/truck/:id' />
           <PrivateRoute path='/operator/add-truck' component={AddTruck} />
           <PrivateRoute path='/operator/update-truck/:id' />
-          <PrivateRoute path='/operator/update-info/:id' />
+          <PrivateRoute path='/operator/update-info/:id' component={UpdateOperatorInfo} />
           <PrivateRoute path='/operator/add-menuItem' />
           <PrivateRoute path='/operator/update-menuItem/:id' />
 
