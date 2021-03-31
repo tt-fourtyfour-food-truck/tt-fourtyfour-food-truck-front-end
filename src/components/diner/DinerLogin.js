@@ -10,6 +10,8 @@ import {
 } from "@material-ui/core";
 import { AccountCircle, Visibility, VisibilityOff } from "@material-ui/icons";
 import { useHistory } from 'react-router-dom';
+import { connect } from "react-redux";
+import { dinerLoggedIn } from "../../store";
 
 const useStyles = makeStyles({
   root: {
@@ -59,7 +61,7 @@ const initialHelperText = {
   password: ""
 };
 
-const DinerLogin = () => {
+const DinerLogin = props => {
   const classes = useStyles();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -82,20 +84,17 @@ const DinerLogin = () => {
       values.username.match(/^\w{5,11}$/g) &&
       values.password.match(/^[.\S]{7,15}$/g)
     ) {
+      props.dinerLoggedIn(values);
       setValues(initialValues);
-    //   userLoginSubmit(values);
-    //   action^^^
-    //   setTimeout(() => {
-    //     push("/diner/dashboard");
-    // }, 2000);
-      console.log(values);
+      setTimeout(() => {
+        push("/diner/dashboard");
+      }, 2000);
     } else {
       setValues(initialValues);
       setHelperText({
         username: "Invalid Username. Please try again.",
         password: "Invalid Password. Please try again."
       });
-      return;
     }
   };
 
@@ -182,4 +181,10 @@ const DinerLogin = () => {
   );
 };
 
-export default DinerLogin;
+const mapDispatchToProps = () => {
+  return {
+    dinerLoggedIn
+  }
+}
+
+export default connect(null, mapDispatchToProps())(DinerLogin);

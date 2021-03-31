@@ -28,14 +28,16 @@ export const operatorSignedUp = (/* newOperator */) => dispatch => {
         });
 }
 
-export const dinerLoggedIn = (/* diner */) => dispatch => {
+export const dinerLoggedIn = diner => dispatch => {
     axiosWithBaseURL()
-        .post(``, /* diner */)
+        .post(`/api/login`, diner)
         .then(res => {
-            dispatch({ type: DINER_LOGGED_IN });
+            console.log(res);
+            // dispatch({ type: DINER_LOGGED_IN });
         })
         .catch(err => {
-            dispatch({  });
+            // dispatch({  });
+            console.log(err);
         });
 }
 
