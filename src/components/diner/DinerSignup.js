@@ -14,13 +14,20 @@ import Container from "@material-ui/core/Container";
 
 //unit 3 add
 import { connect } from "react-redux";
+import {dinerSignedUp} from '../../store/actions'
 
 const useStyles = makeStyles((theme) => ({
+  root:{
+    backgroundColor: '#ADD8E6',
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: 'white',
+    padding:'2%',
+    
   },
   avatar: {
     margin: theme.spacing(1),
@@ -34,36 +41,33 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2)
   }
 }));
-
+//END OF STYLES --------------------------------------------
 
 const initialValues = {
   username: "",
   password: "",
   email: "",
-  location: "",
-  trucks: []
+  currentLocation: "",
+  // trucks: []
 };
 
 //
- function DinerSignup() {
+ function DinerSignup(props) {
   const classes = useStyles();
-  const [truckForm, setTruckForm] = useState("");
+  // const [truckForm, setTruckForm] = useState("");
   const [values, setValues] = useState(initialValues);
   const [location, setLocation] = useState("");
 
-  useEffect(() => {
-    console.log(values);
-  }, [values]);
 
-  const addTruck = (e) => {
-    e.preventDefault();
-    setValues({ ...values, trucks: [...values.trucks, truckForm] });
-  };
+  // const addTruck = (e) => {
+  //   e.preventDefault();
+  //   setValues({ ...values, trucks: [...values.trucks, truckForm] });
+  // };
 
-  const handelChanges = (e) => {
-    const { value } = e.target;
-    setTruckForm(value);
-  };
+  // const handelChanges = (e) => {
+  //   const { value } = e.target;
+  //   setTruckForm(value);
+  // };
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -78,27 +82,28 @@ const initialValues = {
       values.email.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/)
     ) {
     }
-    return;
+    props.dinerSignedUp(values);
   };
 
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      console.log("Geolocation is not supported by this browser.");
-    }
-  }
+  // function getLocation() {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(showPosition);
+  //   } else {
+  //     console.log("Geolocation is not supported by this browser.");
+  //   }
+  // }
 
-  function showPosition(position) {
-    setLocation(position.coords.latitude + "," + position.coords.longitude);
-  }
-  getLocation();
+  // function showPosition(position) {
+  //   setLocation(position.coords.latitude + "," + position.coords.longitude);
+  // }
+  // getLocation();
 
   function locationSet() {
-    setValues({ ...values, location: location });
+    setValues({ ...values, currentLocation: location });
   }
 
   return (
+    <Grid className={classes.root}>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -151,15 +156,15 @@ const initialValues = {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                name="location"
+                name="currentLocation"
                 variant="outlined"
                 required
                 fullWidth
-                label="Location"
+                label="currentLocation"
                 type="address"
-                id="location"
+                id="currentLocation"
                 onChange={onChange}
-                value={values.location}
+                value={values.currentLocation}
                 InputProps={{
                   endAdornment: (
                     <IconButton onClick={locationSet}>
@@ -169,7 +174,7 @@ const initialValues = {
                 }}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            {/* <Grid item xs={12} sm={6}>
               <div>
                 <TextField
                   onChange={(e) => handelChanges(e)}
@@ -183,8 +188,8 @@ const initialValues = {
                   </div>
                 );
               })}
-            </Grid>
-            <Grid item xs={12} sm={6}>
+            </Grid> */}
+            {/* <Grid item xs={12} sm={6}>
               <Button
                 onClick={(e) => addTruck(e)}
                 fullWidth
@@ -193,7 +198,7 @@ const initialValues = {
               >
                 Add Favorite Truck
               </Button>
-            </Grid>
+            </Grid> */}
           </Grid>
           <Button
             type="submit"
@@ -206,7 +211,7 @@ const initialValues = {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/diner/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
@@ -214,14 +219,9 @@ const initialValues = {
         </form>
       </div>
     </Container>
+    </Grid>
   );
 }
 
-const mapStateToProps = (state) =>{
-    console.log('MSTP inside DinerSignup', state);
-    return {
-        diner: state.auth.diner
-    }
-}
 
-export default connect(mapStateToProps, {})(DinerSignup)
+export default connect(null, {dinerSignedUp})(DinerSignup)

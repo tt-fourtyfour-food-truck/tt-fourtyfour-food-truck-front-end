@@ -18,7 +18,10 @@ const initialState = {
 export const AuthReducer = (state = initialState, action) => {
     switch(action.type){
         case DINER_SIGNED_UP:
-            return state;
+            return {
+                ...state,
+                diner: action.payload
+            }
 
         case OPERATOR_SIGNED_UP:
             return state;

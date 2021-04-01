@@ -6,25 +6,31 @@ export const DINER_LOGGED_IN = "DINER_LOGGED_IN";
 export const OPERATOR_LOGGED_IN = "OPERATOR_LOGGED_IN";
 export const LOGOUT = "LOGOUT";
 
-export const dinerSignedUp = (/* newDiner */) => dispatch => {
+export const dinerSignedUp = (newDiner) => dispatch => {
+    console.log(newDiner)
     axiosWithBaseURL()
-        .post(``, /* newDiner */)
+        .post(`/api/auth/register`, newDiner)
         .then(res => {
-            dispatch({ type: DINER_SIGNED_UP });
+            console.log(res)
+            dispatch({ type: DINER_SIGNED_UP, payload: newDiner });
         })
         .catch(err => {
-            dispatch({  });
+            console.log(err, err.message, err.response)
+            // dispatch({  });
         });
 }
 
-export const operatorSignedUp = (/* newOperator */) => dispatch => {
+export const operatorSignedUp = (newOperator) => dispatch => {
+    console.log(newOperator)
     axiosWithBaseURL()
-        .post(``, /* newOperator */)
+        .post(`/api/auth/register`, newOperator)
         .then(res => {
-            dispatch({ type: DINER_SIGNED_UP });
+            console.log(res)
+            // dispatch({ type: DINER_SIGNED_UP });
         })
         .catch(err => {
-            dispatch({  });
+            console.log(err)
+            // dispatch({  });
         });
 }
 
