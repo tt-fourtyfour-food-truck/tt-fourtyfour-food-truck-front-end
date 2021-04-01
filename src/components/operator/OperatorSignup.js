@@ -13,6 +13,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import LoginSignupNav from './../navs/LoginSignupNav';
 
+
+import {connect} from 'react-redux';
+import {operatorSignedUp} from '../../store/actions'
+
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -40,7 +44,7 @@ const initialValues = {
   trucks: []
 };
 
-export default function OperatorSignup() {
+function OperatorSignup(props) {
   const classes = useStyles();
   const [truckForm, setTruckForm] = useState("");
   const [values, setValues] = useState(initialValues);
@@ -73,7 +77,7 @@ export default function OperatorSignup() {
       values.email.match(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/)
     ) {
     }
-    return;
+    props.operatorSignedUp(values);
   };
 
   function getLocation() {
@@ -203,7 +207,7 @@ export default function OperatorSignup() {
             </Button>
             <Grid container justify="flex-end">
                 <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/operator/login" variant="body2">
                     Already have an account? login
                 </Link>
                 </Grid>
@@ -214,3 +218,5 @@ export default function OperatorSignup() {
     </>
   );
 }
+
+export default connect(null, {operatorSignedUp})(OperatorSignup)

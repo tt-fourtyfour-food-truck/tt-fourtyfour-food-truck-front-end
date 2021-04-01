@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-
+import LoginSignupNav from '../navs/LoginSignupNav'
 // material-ui
 import { Grid } from "@material-ui/core";
 import {makeStyles} from '@material-ui/core/styles'
@@ -51,6 +51,7 @@ function OperatorDashboard() {
     return (
         <>
         <Grid className={classes.root}>
+        <LoginSignupNav />
         <h2 className={classes.h2}>Operator's Dashboard</h2>
         <Grid className={classes.dashboardContainer}>
             <Grid className = {classes.dashboardCard}>
