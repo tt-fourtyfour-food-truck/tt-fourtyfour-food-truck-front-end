@@ -15,6 +15,7 @@ import Container from "@material-ui/core/Container";
 //unit 3 add
 import { connect } from "react-redux";
 import {dinerSignedUp} from '../../store/actions'
+import LoginSignupNav from './../navs/LoginSignupNav';
 
 const useStyles = makeStyles((theme) => ({
   root:{
@@ -104,123 +105,126 @@ const initialValues = {
   // }
 
   return (
-    <Grid className={classes.root}>
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
-        <form className={classes.form} onSubmit={onSubmit}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                name="username"
-                variant="outlined"
-                required
-                fullWidth
-                onChange={onChange}
-                id="username"
-                label="Username"
-                value={values.username}
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                name="password"
-                variant="outlined"
-                required
-                fullWidth
-                id="password"
-                type="password"
-                label="Password"
-                onChange={onChange}
-                value={values.password}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                name="email"
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                type="email"
-                label="Email Address"
-                onChange={onChange}
-                value={values.email}
-              />
-            </Grid>
-            {/* <Grid item xs={12}>
-              <TextField
-                name="currentLocation"
-                variant="outlined"
-                required
-                fullWidth
-                label="currentLocation"
-                type="address"
-                id="currentLocation"
-                onChange={onChange}
-                value={values.currentLocation}
-                InputProps={{
-                  endAdornment: (
-                    <IconButton onClick={locationSet}>
-                      <LocationSearchingIcon />
-                    </IconButton>
-                  )
-                }}
-              />
-            </Grid> */}
-            {/* <Grid item xs={12} sm={6}>
-              <div>
+    <>
+      <Grid className={classes.root}>
+      <LoginSignupNav />
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <form className={classes.form} onSubmit={onSubmit}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
                 <TextField
-                  onChange={(e) => handelChanges(e)}
-                  value={truckForm}
+                  name="username"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  onChange={onChange}
+                  id="username"
+                  label="Username"
+                  value={values.username}
+                  autoFocus
                 />
-              </div>
-              {values.trucks.map((truck) => {
-                return (
-                  <div>
-                    <Button onClick={(e) => {}}>{truck}</Button>
-                  </div>
-                );
-              })}
-            </Grid> */}
-            {/* <Grid item xs={12} sm={6}>
-              <Button
-                onClick={(e) => addTruck(e)}
-                fullWidth
-                variant="contained"
-                color="primary"
-              >
-                Add Favorite Truck
-              </Button>
-            </Grid> */}
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign Up
-          </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link href="/diner/login" variant="body2">
-                Already have an account? Sign in
-              </Link>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  name="password"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="password"
+                  type="password"
+                  label="Password"
+                  onChange={onChange}
+                  value={values.password}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  name="email"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  type="email"
+                  label="Email Address"
+                  onChange={onChange}
+                  value={values.email}
+                />
+              </Grid>
+              {/* <Grid item xs={12}>
+                <TextField
+                  name="currentLocation"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  label="currentLocation"
+                  type="address"
+                  id="currentLocation"
+                  onChange={onChange}
+                  value={values.currentLocation}
+                  InputProps={{
+                    endAdornment: (
+                      <IconButton onClick={locationSet}>
+                        <LocationSearchingIcon />
+                      </IconButton>
+                    )
+                  }}
+                />
+              </Grid> */}
+              {/* <Grid item xs={12} sm={6}>
+                <div>
+                  <TextField
+                    onChange={(e) => handelChanges(e)}
+                    value={truckForm}
+                  />
+                </div>
+                {values.trucks.map((truck) => {
+                  return (
+                    <div>
+                      <Button onClick={(e) => {}}>{truck}</Button>
+                    </div>
+                  );
+                })}
+              </Grid> */}
+              {/* <Grid item xs={12} sm={6}>
+                <Button
+                  onClick={(e) => addTruck(e)}
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                >
+                  Add Favorite Truck
+                </Button>
+              </Grid> */}
             </Grid>
-          </Grid>
-        </form>
-      </div>
-    </Container>
-    </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign Up
+            </Button>
+            <Grid container justify="flex-end">
+              <Grid item>
+                <Link href="/diner/login" variant="body2">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
+            </Grid>
+          </form>
+        </div>
+      </Container>
+      </Grid>
+    </>
   );
 }
 

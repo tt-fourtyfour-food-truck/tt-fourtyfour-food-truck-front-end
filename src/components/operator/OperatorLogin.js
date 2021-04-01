@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import { AccountCircle, Visibility, VisibilityOff } from "@material-ui/icons";
 import { useHistory } from 'react-router-dom';
+import LoginSignupNav from './../navs/LoginSignupNav';
 
 //action creators
 import { operatorLoggedIn } from "../../store";
@@ -100,6 +101,7 @@ const OperatorLogin = props => {
 
   return (
     <>
+      <LoginSignupNav />
       <Grid container className={classes.root}>
         <Paper className={classes.paper}>
           <Grid container>
