@@ -90,10 +90,5 @@ function OperatorDashboard() {
     );
 }
 
-const mapStateToProps = state => {
-    return {
-
-    }
-}
 
 export default OperatorDashboard;
