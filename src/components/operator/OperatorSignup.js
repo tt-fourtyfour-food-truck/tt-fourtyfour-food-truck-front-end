@@ -14,8 +14,10 @@ import Container from "@material-ui/core/Container";
 import LoginSignupNav from './../navs/LoginSignupNav';
 
 
+import { useHistory } from "react-router-dom";
 import {connect} from 'react-redux';
 import {operatorSignedUp} from '../../store/actions'
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -50,6 +52,8 @@ function OperatorSignup(props) {
   const [values, setValues] = useState(initialValues);
   const [location, setLocation] = useState("");
 
+  const {push} = useHistory();
+
   useEffect(() => {
     console.log(values);
   }, [values]);
@@ -78,6 +82,7 @@ function OperatorSignup(props) {
     ) {
     }
     props.operatorSignedUp(values);
+    push('/operator/login')
   };
 
   function getLocation() {
