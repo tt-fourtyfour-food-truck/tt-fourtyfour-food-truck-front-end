@@ -88,6 +88,7 @@ const OperatorLogin = props => {
       values.password.match(/^[.\S]{7,15}$/g)
     ) {
       props.operatorLoggedIn(values);
+      push('/operator/dashboard')
       setValues(initialValues);
     } else {
       setValues(initialValues);
