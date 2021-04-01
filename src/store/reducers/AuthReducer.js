@@ -24,7 +24,10 @@ export const AuthReducer = (state = initialState, action) => {
             }
 
         case OPERATOR_SIGNED_UP:
-            return state;
+            return {
+                ...state,
+                operator: action.payload
+            }
 
         case DINER_LOGGED_IN:
             return state;
