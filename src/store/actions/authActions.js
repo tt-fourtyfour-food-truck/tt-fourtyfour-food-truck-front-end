@@ -12,7 +12,7 @@ export const dinerSignedUp = (newDiner) => dispatch => {
         .post(`/api/auth/register`, newDiner)
         .then(res => {
             console.log(res)
-            dispatch({ type: DINER_SIGNED_UP, payload: newDiner });
+            // dispatch({ type: DINER_SIGNED_UP, payload: newDiner });
         })
         .catch(err => {
             console.log(err, err.message, err.response)
