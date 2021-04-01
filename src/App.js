@@ -21,6 +21,8 @@ import AddTruck from './components/operator/AddTruck';
 import UpdateOperatorInfo from './components/operator/UpdateOperatorInfo';
 import AddMenuItem from './components/operator/AddMenuItem';
 import UpdateMenuItem from './components/operator/UpdateMenuItem';
+import UpdateTruck from './components/operator/UpdateTruck';
+import OperatorSignup from './components/operator/OperatorSignup';
 
 function App() {
   return (
@@ -35,7 +37,7 @@ function App() {
 
           {/* signup routes */}
           <Route path='/diner/register' component={DinerSignup} />
-          <Route path='/operator/register' />
+          <Route path='/operator/register' component={OperatorSignup} />
 
           {/* diner private routes */}
           <PrivateRoute path='/diner/dashboard' component={DinerDashboard}/>
@@ -45,7 +47,7 @@ function App() {
           <PrivateRoute path='/operator/dashboard' />
           <PrivateRoute path='/operator/truck/:id' />
           <PrivateRoute path='/operator/add-truck' component={AddTruck} />
-          <PrivateRoute path='/operator/update-truck/:id' />
+          <PrivateRoute path='/operator/update-truck/:id' component={UpdateTruck} />
           <PrivateRoute path='/operator/update-info/:id' component={UpdateOperatorInfo} />
           <PrivateRoute path='/operator/add-menuItem' component={AddMenuItem} />
           <PrivateRoute path='/operator/update-menuItem:id' component={UpdateMenuItem} />

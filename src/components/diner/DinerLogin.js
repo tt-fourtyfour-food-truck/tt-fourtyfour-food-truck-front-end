@@ -12,6 +12,7 @@ import { AccountCircle, Visibility, VisibilityOff } from "@material-ui/icons";
 import { useHistory } from 'react-router-dom';
 import { connect } from "react-redux";
 import { dinerLoggedIn } from "../../store";
+import LoginSignupNav from './../navs/LoginSignupNav';
 
 const useStyles = makeStyles({
   root: {
@@ -100,6 +101,7 @@ const DinerLogin = props => {
 
   return (
     <>
+    <LoginSignupNav />
       <Grid container className={classes.root}>
         <Paper className={classes.paper}>
           <Grid container>
