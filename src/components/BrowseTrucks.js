@@ -65,9 +65,52 @@ const useStyles = makeStyles({
     border: '5px solid #ADD8E6',
     boxShadow:' 0 2px 3px 3px lightcoral',
   },
+  chicken:{
+    width:'30%'
+  },
+  p:{
+    color:'black',
+    fontSize:'2rem',
+    textShadow: '1px 1px 1px white'
+  },
+  box:{
+    display:'flex',
+    flexFlow:'row',
+    justifyContent:'center',
+    alignItems:'center'
+  },
+  innerbox:{
+    width:'30%',
+    backgroundColor: 'white',
+    margin:'1%'
+  }
 })
 
-
+const dummyTrucksOwned = [
+  {
+      truck: {
+          id: 1,
+          img: 'https://images.pexels.com/photos/5675763/pexels-photo-5675763.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+          cuisineType: 'Chinese',
+          customerRatings: [4.5,4.4],
+          customerRatingAvg: 4.45, //integer equal to the mean of the values in customer ratings
+           //menuItems will be held in here when created
+          menuItems: {
+              itemName: 'Orange Chicken',
+              itemDescription: 'Yummy!',
+              itemPhotos: 'https://images.pexels.com/photos/699544/pexels-photo-699544.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', //array of images or url's
+              itemPrice: 14.99, //integer
+              customerRatings: [4.5],
+              customerRatingAvg: 4.5,
+          },
+          currentLocation: {
+              location: 'California, USA',
+              departureTime: '10am', //time
+              departureDate: 'April 2nd, 2021' //date
+          },
+      },
+  }
+];
 
 function BrowseTrucks() {
     // const [trucks, setTrucks] = useState([])
@@ -97,6 +140,32 @@ function BrowseTrucks() {
         <h2 className={classes.h2}>Browse Local Trucks!</h2>
             {/* Map over trucks */}
             {/* {trucks.map(item=><p>{item}</p>)} */}
+
+            {/* Dummy Truck */}
+            {dummyTrucksOwned.map((item) =>{
+              return (
+              <>
+              <Grid className={classes.box}>
+                <Grid className={classes.innerbox}>
+                <p className={classes.p}>Truck Number #{item.truck.id}</p>
+                <img src={item.img} />
+                <p className={classes.p}>Cuisine Type:{item.truck.cuisineType}</p>
+                <p className={classes.p}>Customer Rating:{item.truck.customerRatings}</p>
+                <p className={classes.p}>Customer Avg Rating:{item.truck.customerRatingAvg}</p>
+                </Grid>
+                <Grid className={classes.innerbox}>
+                  <p className={classes.p}>Menu Items: {item.truck.menuItems.itemName}</p>
+                  <img className={classes.chicken} src={item.truck.menuItems.itemPhotos} />
+                  <p className={classes.p}>Description:{item.truck.menuItems.itemDescription}</p>
+                  <p className={classes.p}>Price: {item.truck.menuItems.itemPrice}</p>
+                  <p className={classes.p}>Customer Rating: {item.truck.menuItems.customerRatings}</p>
+                  <p className={classes.p}>Customer Avg Rating: {item.truck.menuItems.customerRatingAvg}</p>
+                </Grid>
+              </Grid>
+              </>
+              )
+            })}
+           
           <Grid className={classes.imageContainer}>
             <h3 className={classes.h3}>Find all your nearby food trucks!</h3>
             <Grid className={classes.truckImg}>
