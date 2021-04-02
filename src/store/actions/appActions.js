@@ -13,7 +13,7 @@ export const ADD_TRUCK_TO_FAVORITES = "ADD_TRUCK_TO_FAVORITES";
 
 export const addTruck = newTruck => dispatch => {
     axiosWithAuth()
-        .post(``, newTruck)
+        .post(`/api/trucks`, newTruck)
         .then(res => {
             dispatch({ type: ADD_TRUCK, payload: newTruck });
         })
@@ -24,7 +24,7 @@ export const addTruck = newTruck => dispatch => {
 
 export const deleteTruck = () => dispatch => {
     axiosWithAuth()
-        .delete(``)
+        .delete(`/api/trucks/:truck_id`)
         .then(res => {
             dispatch({ type: DELETE_TRUCK });
         })
@@ -35,7 +35,7 @@ export const deleteTruck = () => dispatch => {
 
 export const updateTruck = (/* tuckToEdit */) => dispatch => {
     axiosWithAuth()
-        .put(``, /* truckToEdit */)
+        .put(`/api/trucks/:truck_id`, /* truckToEdit */)
         .then(res => {
             dispatch({ type: UPDATE_TRUCK });
         })
@@ -46,7 +46,7 @@ export const updateTruck = (/* tuckToEdit */) => dispatch => {
 
 export const createMenuItem = (/* newItem */) => dispatch => {
     axiosWithAuth()
-        .post(``)
+        .post(`/api/items`)
         .then(res => {
             dispatch({ type: CREATE_MENU_ITEM });
         })
@@ -57,7 +57,7 @@ export const createMenuItem = (/* newItem */) => dispatch => {
 
 export const updateMenuItem = (/* updatedMenuItem */) => dispatch => {
     axiosWithAuth()
-        .put(``, /* updatedMenuItem */)
+        .put(`/api/items/:item_id`, /* updatedMenuItem */)
         .then(res => {
             dispatch({ type: UPDATE_MENU_ITEM });
         })
@@ -69,7 +69,7 @@ export const updateMenuItem = (/* updatedMenuItem */) => dispatch => {
 
 export const updateDinerInfo = (/* id ? */) => dispatch => {
     axiosWithAuth()
-        .put(``, /* id */)
+        .put(`/api/user/:user_id`, /* id */)
         .then(res => {
             dispatch({ type: UPDATE_DINER_INFO })
         })
@@ -80,7 +80,7 @@ export const updateDinerInfo = (/* id ? */) => dispatch => {
 
 export const updateOperatorInfo = (/* id ? */) => dispatch => {
     axiosWithAuth()
-        .put(``, /* id */)
+        .put(`/api/user/:user_id`, /* id */)
         .then(res => {
             dispatch({ type: UPDATE_OPERATOR_INFO })
         })
@@ -91,7 +91,7 @@ export const updateOperatorInfo = (/* id ? */) => dispatch => {
 
 export const addTruckToFavorites = (/* id ? */) => dispatch => {
     axiosWithAuth()
-        .post(``, /* id */)
+        .post(`/api/trucks/:truck_id/favorites`, /* id */)
         .then(res => {
             dispatch({ type: ADD_TRUCK_TO_FAVORITES })
         })
