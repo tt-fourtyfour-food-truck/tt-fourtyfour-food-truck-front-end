@@ -148,14 +148,14 @@ function BrowseTrucks() {
               <Grid className={classes.box}>
                 <Grid className={classes.innerbox}>
                 <p className={classes.p}>Truck Number #{item.truck.id}</p>
-                <img src={item.img} />
+                <img src={item.img} alt='' />
                 <p className={classes.p}>Cuisine Type:{item.truck.cuisineType}</p>
                 <p className={classes.p}>Customer Rating:{item.truck.customerRatings}</p>
                 <p className={classes.p}>Customer Avg Rating:{item.truck.customerRatingAvg}</p>
                 </Grid>
                 <Grid className={classes.innerbox}>
                   <p className={classes.p}>Menu Items: {item.truck.menuItems.itemName}</p>
-                  <img className={classes.chicken} src={item.truck.menuItems.itemPhotos} />
+                  <img className={classes.chicken alt=''} src={item.truck.menuItems.itemPhotos} />
                   <p className={classes.p}>Description:{item.truck.menuItems.itemDescription}</p>
                   <p className={classes.p}>Price: {item.truck.menuItems.itemPrice}</p>
                   <p className={classes.p}>Customer Rating: {item.truck.menuItems.customerRatings}</p>
