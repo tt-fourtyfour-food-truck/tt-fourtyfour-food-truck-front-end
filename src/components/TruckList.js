@@ -19,9 +19,7 @@ const TruckList = props => {
     return (
     <>
     <Grid>
-    <Typography>TruckList</Typography>
     {props.truckList && props.truckList.map(truck => {
-        console.log(truck);
         return <Truck key={truck.truck_id} truck={truck} />
     })}
     </Grid>
