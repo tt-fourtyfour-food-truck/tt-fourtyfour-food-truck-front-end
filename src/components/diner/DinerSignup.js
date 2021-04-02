@@ -48,7 +48,7 @@ const initialValues = {
   username: "",
   password: "",
   email: "",
-  role: 1
+  role: "diner"
   // currentLocation: "",
   // trucks: []
 };

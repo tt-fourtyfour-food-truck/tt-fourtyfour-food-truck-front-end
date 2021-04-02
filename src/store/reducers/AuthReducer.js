@@ -2,10 +2,10 @@ import { DINER_SIGNED_UP, OPERATOR_SIGNED_UP, DINER_LOGGED_IN, OPERATOR_LOGGED_I
 
 const initialState = {
     diner: {
-        username: '',
-        email: '',
-        password: '',
-        currentLocation: '',
+        email: "",
+        role: "",
+        user_id: null,
+        username: ""
     },
     operator: {
         username: '',
@@ -30,7 +30,17 @@ export const AuthReducer = (state = initialState, action) => {
             }
 
         case DINER_LOGGED_IN:
-            return state;
+
+            return {
+                ...state,
+                diner: {
+                    ...state.diner,
+                    email: action.payload.email,
+                    role: action.payload.role,
+                    user_id: action.payload.user_id,
+                    username: action.payload.username
+                }
+            };
 
         case OPERATOR_LOGGED_IN:
             return state;

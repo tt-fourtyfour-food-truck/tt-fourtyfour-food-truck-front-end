@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-
+import { useHistory } from "react-router-dom";
 const useStyles = makeStyles({
   navStyles: {
     display: 'flex',
@@ -31,6 +31,7 @@ const useStyles = makeStyles({
 const HomeNav = () => {
 
   const classes = useStyles();
+  const { push } = useHistory();
 
     return (
         <div className={classes.navStyles}>
@@ -39,6 +40,13 @@ const HomeNav = () => {
                   Home
               </Button>
             </NavLink>
+            <Button onClick={e => {
+              e.stopPropagation();
+              localStorage.removeItem("token");
+              push('/');
+            }} className={classes.buttonStyles}>
+              Logout        
+            </Button>
         </div>
     )
 }
