@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 //components
 import MarketingPage from './components/MarketingPage';
+import BrowseTrucks from './components/BrowseTrucks'
 
 //private route
 import PrivateRoute from './components/PrivateRoute';
@@ -43,6 +44,7 @@ function App() {
           {/* diner private routes */}
           <PrivateRoute path='/diner/dashboard' component={DinerDashboard}/>
           <PrivateRoute path='/diner/update-info' component={UpdateDinerInfo} />
+          <PrivateRoute path='/diner/browse' component={BrowseTrucks} />
           
           {/* operator private routes */}
           <PrivateRoute path='/operator/dashboard' component={OperatorDashboard}/>
