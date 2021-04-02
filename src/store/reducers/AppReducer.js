@@ -74,7 +74,7 @@ export const AppReducer = (state = initialState, action) => {
             return{
                 ...state,
                 operator: {...state.operator.trucksOwned.truck.menu, menuItems: action.payload},
-                operator: {...state.operator.trucksOwned.truck, menu: [...menu, action.payload]}
+                operator: {...state.operator.trucksOwned.truck, menu: [...state.operator.trucksOwned.truck.menu, action.payload]}
                 
             }
 
