@@ -73,8 +73,9 @@ export const AppReducer = (state = initialState, action) => {
         case CREATE_MENU_ITEM:
             return{
                 ...state,
-                menuItems: action.payload,
-                menu: [...menu, action.payload]
+                operator: {...state.operator.trucksOwned.truck.menu, menuItems: action.payload},
+                operator: {...state.operator.trucksOwned.truck, menu: [...menu, action.payload]}
+                
             }
 
         case UPDATE_MENU_ITEM:
@@ -96,13 +97,13 @@ export const AppReducer = (state = initialState, action) => {
         case UPDATE_DINER_INFO:
             return {
                 ...state,
-                diner: Object.assign(diner, action.payload)
+                diner: Object.assign(state.diner, action.payload)
             }
 
         case UPDATE_OPERATOR_INFO:
             return {
                 ...state,
-                operator: Object.assign(operator, action.payload)
+                operator: Object.assign(state.operator, action.payload)
             }
         
         case ADD_TRUCK_TO_FAVORITES:
