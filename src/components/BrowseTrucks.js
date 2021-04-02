@@ -70,7 +70,7 @@ const useStyles = makeStyles({
 
 
 function BrowseTrucks() {
-    const [trucks, setTrucks] = useState([])
+    // const [trucks, setTrucks] = useState([])
     const classes = useStyles()
     
     useEffect(()=>{
