@@ -7,6 +7,7 @@ export {
     OPERATOR_LOGGED_IN, operatorLoggedIn,
     LOGOUT, logout,
     UPDATE_DINER_INFO, updateDinerInfo,
+    FETCH_DINER_INFO, fetchDinerInfo,
     
     //appActions
     ADD_TRUCK, addTruck,

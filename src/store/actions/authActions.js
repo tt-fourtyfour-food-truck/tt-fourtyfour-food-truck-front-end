@@ -6,6 +6,7 @@ export const OPERATOR_SIGNED_UP = "OPERATOR_SIGNED_UP";
 export const DINER_LOGGED_IN = "DINER_LOGGED_IN";
 export const OPERATOR_LOGGED_IN = "OPERATOR_LOGGED_IN";
 export const UPDATE_DINER_INFO = "UPDATE_DINER_INFO";
+export const FETCH_DINER_INFO = "FETCH_DINER_INFO";
 export const LOGOUT = "LOGOUT";
 
 export const dinerSignedUp = (newDiner) => dispatch => {
@@ -68,11 +69,6 @@ export const logout = (/* user */) => dispatch => {
         });
 }
 
-// export const fetchDinerInfo = () => dispatch => {
-//     axiosWithAuth()
-//         .get(`api/user/`)
-// }
-
 export const updateDinerInfo = (user_id) => dispatch => {
     axiosWithAuth()
         .put(`/api/user/${user_id}`)
@@ -83,4 +79,16 @@ export const updateDinerInfo = (user_id) => dispatch => {
         .catch(err => {
             console.log(err)
         })
+}
+
+export const fetchDinerInfo = () => dispatch => {
+    // axiosWithAuth()
+    //     .get(`/api/user/${user_id}`)
+    //     .then(res => {
+    //         console.log(res);
+    //         dispatch({ type: FETCH_DINER_INFO })
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //     })
 }

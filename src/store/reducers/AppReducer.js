@@ -42,7 +42,10 @@ const initialState = {
 export const AppReducer = (state = initialState, action) => {
     switch(action.type){
         case FETCH_TRUCKS:
-            return state;
+            return {
+                ...state,
+                truckList: action.payload
+            };
         case ADD_TRUCK:
             return {
                 ...state,
@@ -93,12 +96,6 @@ export const AppReducer = (state = initialState, action) => {
                 })}
                 
             }
-
-        // case UPDATE_DINER_INFO:
-        //     return {
-        //         ...state,
-        //         diner: Object.assign(state.diner, action.payload)
-        //     }
 
         // case UPDATE_OPERATOR_INFO:
         //     return {

@@ -12,6 +12,18 @@ export const UPDATE_OPERATOR_INFO = "UPDATE_OPERATOR_INFO";
 export const ADD_TRUCK_TO_FAVORITES = "ADD_TRUCK_TO_FAVORITES";
 export const FETCH_TRUCKS = "FETCH_TRUCKS";
 
+
+export const fetchTrucks = () => dispatch => {
+    axiosWithAuth()
+        .get(`/api/trucks`)
+        .then(res => {
+            dispatch({ type: FETCH_TRUCKS, payload: res.data });
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
 export const addTruck = newTruck => dispatch => {
     axiosWithAuth()
         .post(`/api/trucks`, newTruck)
@@ -98,16 +110,5 @@ export const addTruckToFavorites = (/* id ? */) => dispatch => {
         })
         .catch(err => {
             dispatch({  });
-        });
-}
-
-export const fetchTrucks = () => dispatch => {
-    axiosWithAuth()
-        .get(``)
-        .then(res => {
-            dispatch({ type: FETCH_TRUCKS });
-        })
-        .catch(err => {
-            console.log(err);
         });
 }

@@ -1,4 +1,4 @@
-import { DINER_SIGNED_UP, OPERATOR_SIGNED_UP, DINER_LOGGED_IN, OPERATOR_LOGGED_IN, LOGOUT } from '../../store';
+import { DINER_SIGNED_UP, OPERATOR_SIGNED_UP, DINER_LOGGED_IN, OPERATOR_LOGGED_IN, LOGOUT, FETCH_DINER_INFO } from '../../store';
 
 const initialState = {
     diner: {
@@ -30,7 +30,6 @@ export const AuthReducer = (state = initialState, action) => {
             }
 
         case DINER_LOGGED_IN:
-
             return {
                 ...state,
                 diner: {
@@ -44,7 +43,18 @@ export const AuthReducer = (state = initialState, action) => {
 
         case OPERATOR_LOGGED_IN:
             return state;
-
+        case FETCH_DINER_INFO:
+            return state;
+            // return {
+            //     ...state,
+            //     diner: {
+            //         ...state.diner,
+            //         email: action.payload.email,
+            //         role: action.payload.role,
+            //         user_id: action.payload.user_id,
+            //         username: action.payload.username
+            //     }
+            // }
         case LOGOUT: 
             return state;
 

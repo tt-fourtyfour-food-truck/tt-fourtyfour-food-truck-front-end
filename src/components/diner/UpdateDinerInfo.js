@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Paper,
   Grid,
@@ -14,7 +14,7 @@ import {
 } from "@material-ui/core";
 import { AccountCircle, Visibility, VisibilityOff } from "@material-ui/icons";
 import LocationSearchingIcon from "@material-ui/icons/LocationSearching";
-import { updateDinerInfo } from "../../store";
+import { fetchDinerInfo, updateDinerInfo } from "../../store";
 import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
@@ -69,42 +69,22 @@ const initialHelperText = {
 };
 
 const UpdateDinerInfo = props => {
+
   const classes = useStyles();
-  console.log(props);
-  const [favoriteTrucks, setFavoriteTrucks] = React.useState("");
-  const [open, setOpen] = React.useState(false);
 
-  const handleTruckChange = (event) => {
-    setFavoriteTrucks(event.target.value);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const [showPassword, setShowPassword] = useState(false);
   const [values, setValues] = useState(initialValues);
   const [helperText, setHelperText] = useState(initialHelperText);
-
-  const handleShowPassword = (e) => {
-    setShowPassword(!showPassword);
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({ ...values, [name]: value });
   };
 
-  console.log(props.diner)
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (values.username.match(/^\w{5,11}$/g)) {
       props.updateDinerInfo(props.diner.user_id);
       setValues(initialValues);
-      console.log(values);
     } else {
       setValues(initialValues);
       setHelperText({
@@ -253,7 +233,7 @@ const UpdateDinerInfo = props => {
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
-                    <MenuItem value={"Oink & Moo BBQ"}>Oink & Moo BBQ</MenuItem>
+                     <MenuItem value={"Oink & Moo BBQ"}>Oink & Moo BBQ</MenuItem>
                     <MenuItem value={"Ms. Cheezious"}>Ms. Cheezious</MenuItem>
                     <MenuItem value={"The Cow and Curd"}>
                       The Cow and Curd
@@ -287,6 +267,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = () => {
   return {
+    fetchDinerInfo,
     updateDinerInfo    
   }
 }
