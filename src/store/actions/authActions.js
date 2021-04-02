@@ -25,11 +25,11 @@ export const operatorSignedUp = (newOperator) => dispatch => {
     axiosWithBaseURL()
         .post(`/api/auth/register`, newOperator)
         .then(res => {
-            console.log(res)
+            console.log(res);
             // dispatch({ type: DINER_SIGNED_UP });
         })
         .catch(err => {
-            console.log(err)
+            console.log(err);
             // dispatch({  });
         });
 }

@@ -10,6 +10,7 @@ export const UPDATE_MENU_ITEM = "UPDATE_MENU_ITEM";
 export const UPDATE_DINER_INFO = "UPDATE_DINER_INFO";
 export const UPDATE_OPERATOR_INFO = "UPDATE_OPERATOR_INFO";
 export const ADD_TRUCK_TO_FAVORITES = "ADD_TRUCK_TO_FAVORITES";
+export const FETCH_TRUCKS = "FETCH_TRUCKS";
 
 export const addTruck = newTruck => dispatch => {
     axiosWithAuth()
@@ -100,3 +101,13 @@ export const addTruckToFavorites = (/* id ? */) => dispatch => {
         });
 }
 
+export const fetchTrucks = () => dispatch => {
+    axiosWithAuth()
+        .get(``)
+        .then(res => {
+            dispatch({ type: FETCH_TRUCKS });
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}

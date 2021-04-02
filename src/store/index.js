@@ -15,7 +15,8 @@ export {
     UPDATE_MENU_ITEM, updateMenuItem, 
     UPDATE_DINER_INFO, updateDinerInfo,
     UPDATE_OPERATOR_INFO, updateOperatorInfo,
-    ADD_TRUCK_TO_FAVORITES, addTruckToFavorites 
+    ADD_TRUCK_TO_FAVORITES, addTruckToFavorites,
+    FETCH_TRUCKS, fetchTrucks
 
 } from "./actions";
 
