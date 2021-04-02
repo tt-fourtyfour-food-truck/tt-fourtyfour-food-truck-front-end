@@ -1,4 +1,4 @@
-import { ADD_TRUCK, DELETE_TRUCK, UPDATE_TRUCK, CREATE_MENU_ITEM, UPDATE_MENU_ITEM, UPDATE_DINER_INFO, UPDATE_OPERATOR_INFO, ADD_TRUCK_TO_FAVORITES } from '../../store';
+import { ADD_TRUCK, DELETE_TRUCK, UPDATE_TRUCK, CREATE_MENU_ITEM, UPDATE_MENU_ITEM, UPDATE_DINER_INFO, UPDATE_OPERATOR_INFO, ADD_TRUCK_TO_FAVORITES, FETCH_TRUCKS } from '../../store';
 
 const initialState = {
     diner: {
@@ -36,16 +36,18 @@ const initialState = {
             }
         ],
     },
+    truckList: []
 };
 
 export const AppReducer = (state = initialState, action) => {
     switch(action.type){
+        case FETCH_TRUCKS:
+            return state;
         case ADD_TRUCK:
             return {
                 ...state,
                 operator: {...state.operator, trucksOwned: [...state.trucksOwned, action.payload]}
             }
-
         case UPDATE_TRUCK:
             return {
                 ...state,
@@ -58,10 +60,8 @@ export const AppReducer = (state = initialState, action) => {
                     {
                         return truck
                     }
-                })}
-                
+                })}   
             }
-
         case DELETE_TRUCK:
             return {
                 ...state,
@@ -114,5 +114,5 @@ export const AppReducer = (state = initialState, action) => {
        
         default:
             return state;
-    }
+        }
 };
