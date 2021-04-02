@@ -73,7 +73,7 @@ export const AppReducer = (state = initialState, action) => {
         case CREATE_MENU_ITEM:
             return{
                 ...state,
-                operator: {...state.operator.trucksOwned.truck.menu, menuItems: action.payload},
+                // operator: {...state.operator.trucksOwned.truck.menu, menuItems: action.payload},
                 operator: {...state.operator.trucksOwned.truck, menu: [...state.operator.trucksOwned.truck.menu, action.payload]}
                 
             }
