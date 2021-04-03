@@ -11,11 +11,12 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-
 //unit 3 add
 import { connect } from "react-redux";
 import {dinerSignedUp} from '../../store/actions'
 import LoginSignupNav from './../navs/LoginSignupNav';
+
+import { useHistory } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   root:{
@@ -48,7 +49,7 @@ const initialValues = {
   username: "",
   password: "",
   email: "",
-  role: 1
+  role: "diner"
   // currentLocation: "",
   // trucks: []
 };
@@ -56,20 +57,8 @@ const initialValues = {
 //
  function DinerSignup(props) {
   const classes = useStyles();
-  // const [truckForm, setTruckForm] = useState("");
   const [values, setValues] = useState(initialValues);
-  // const [location, setLocation] = useState("");
-
-
-  // const addTruck = (e) => {
-  //   e.preventDefault();
-  //   setValues({ ...values, trucks: [...values.trucks, truckForm] });
-  // };
-
-  // const handelChanges = (e) => {
-  //   const { value } = e.target;
-  //   setTruckForm(value);
-  // };
+  const { push } = useHistory();
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -85,24 +74,8 @@ const initialValues = {
     ) {
     }
     props.dinerSignedUp(values);
+    push('/');
   };
-
-  // function getLocation() {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(showPosition);
-  //   } else {
-  //     console.log("Geolocation is not supported by this browser.");
-  //   }
-  // }
-
-  // function showPosition(position) {
-  //   setLocation(position.coords.latitude + "," + position.coords.longitude);
-  // }
-  // getLocation();
-
-  // function locationSet() {
-  //   setValues({ ...values, currentLocation: location });
-  // }
 
   return (
     <>

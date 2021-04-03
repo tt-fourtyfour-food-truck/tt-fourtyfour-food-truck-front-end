@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 // import {Link} from 'react-router-dom'
 import {makeStyles} from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-import {axiosWithAuth} from '../utils/axiosWithAuth'
+import TruckList from "./TruckList";
+
 
 const useStyles = makeStyles({
   root:{
@@ -70,23 +71,9 @@ const useStyles = makeStyles({
 
 
 function BrowseTrucks() {
-    // const [trucks, setTrucks] = useState([])
     const classes = useStyles()
     
-    useEffect(()=>{
-        axiosWithAuth()
-        .get('/api/trucks')
-        .then(res =>{
-            console.log(res)
-            // setTrucks(res)
-        })
-        .catch(err =>{
-            console.log(err, err.reponse)
-        })
-    }, [])
-
-
-  return (
+    return (
     <Grid className={classes.root}>
       <header className={classes.header}>
         <nav className={classes.nav}>
@@ -95,8 +82,7 @@ function BrowseTrucks() {
       </header>
         <Grid className={classes.container}>
         <h2 className={classes.h2}>Browse Local Trucks!</h2>
-            {/* Map over trucks */}
-            {/* {trucks.map(item=><p>{item}</p>)} */}
+          <TruckList />
           <Grid className={classes.imageContainer}>
             <h3 className={classes.h3}>Find all your nearby food trucks!</h3>
             <Grid className={classes.truckImg}>
@@ -107,6 +93,7 @@ function BrowseTrucks() {
     </Grid>
   );
 }
+
 
 export default BrowseTrucks;
 
