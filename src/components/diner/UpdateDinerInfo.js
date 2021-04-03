@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   Paper,
   Grid,
@@ -6,13 +6,9 @@ import {
   Typography,
   Button,
   IconButton,
-  makeStyles,
-  InputLabel,
-  MenuItem,
-  FormControl,
-  Select
+  makeStyles
 } from "@material-ui/core";
-import { AccountCircle, Visibility, VisibilityOff } from "@material-ui/icons";
+import { AccountCircle } from "@material-ui/icons";
 import LocationSearchingIcon from "@material-ui/icons/LocationSearching";
 import { fetchDinerInfo, updateDinerInfo } from "../../store";
 import { connect } from "react-redux";
@@ -83,7 +79,7 @@ const UpdateDinerInfo = props => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (values.username.match(/^\w{5,11}$/g)) {
-      props.updateDinerInfo(props.diner.user_id);
+      props.updateDinerInfo(props.diner);
       setValues(initialValues);
     } else {
       setValues(initialValues);

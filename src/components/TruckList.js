@@ -6,7 +6,7 @@ import Truck from "./Truck";
 //store
 import { connect } from "react-redux";
 import { fetchTrucks } from "../store";
-import { Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 
 
 const TruckList = props => {

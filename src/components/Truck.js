@@ -32,7 +32,7 @@ const Truck = ({ truck }) => {
                 ) : (
                 <>
                     <Typography variant="h6" >Rating:</Typography>
-                    <Typography variant="body1" >{truck.truck_avg_rating} ⭐️</Typography>
+                    <Typography variant="body1" >{truck.truck_avg_rating} <span role="img" aria-label="star-emoji">⭐️</span></Typography>
                 </>)}
                 <Typography variant="h6" >Open:</Typography>
                 <Typography variant="body1" >{truck.open_time}</Typography>

@@ -69,9 +69,9 @@ export const logout = (/* user */) => dispatch => {
         });
 }
 
-export const updateDinerInfo = (user_id) => dispatch => {
+export const updateDinerInfo = (diner) => dispatch => {
     axiosWithAuth()
-        .put(`/api/user/${user_id}`)
+        .put(`/api/user/${diner.user_id}`, diner)
         .then(res => {
             console.log(res);
             dispatch({ type: UPDATE_DINER_INFO });
