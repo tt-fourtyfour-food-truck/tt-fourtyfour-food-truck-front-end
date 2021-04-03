@@ -6,14 +6,12 @@ import {
   Typography,
   Button,
   IconButton,
-  makeStyles,
-  InputLabel,
-  MenuItem,
-  FormControl,
-  Select
+  makeStyles
 } from "@material-ui/core";
-import { AccountCircle, Visibility, VisibilityOff } from "@material-ui/icons";
+import { AccountCircle } from "@material-ui/icons";
 import LocationSearchingIcon from "@material-ui/icons/LocationSearching";
+import { fetchDinerInfo, updateDinerInfo } from "../../store";
+import { connect } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,39 +54,22 @@ const useStyles = makeStyles((theme) => ({
 
 const initialValues = {
   username: "",
-  password: "",
-  currentLocation: "",
-  favoriteTrucks: ""
+  email: "",
+  user_lat: "",
+  user_long: ""
 };
 
 const initialHelperText = {
   username: "",
-  password: ""
+  email: ""
 };
 
-const UpdateDinerInfo = () => {
+const UpdateDinerInfo = props => {
+
   const classes = useStyles();
 
-  const [favoriteTrucks, setFavoriteTrucks] = React.useState("");
-  const [open, setOpen] = React.useState(false);
-
-  const handleTruckChange = (event) => {
-    setFavoriteTrucks(event.target.value);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const [showPassword, setShowPassword] = useState(false);
   const [values, setValues] = useState(initialValues);
   const [helperText, setHelperText] = useState(initialHelperText);
-
-  const handleShowPassword = (e) => {
-    setShowPassword(!showPassword);
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -97,19 +78,15 @@ const UpdateDinerInfo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      values.username.match(/^\w{5,11}$/g) &&
-      values.password.match(/^[.\S]{7,15}$/g)
-    ) {
+    if (values.username.match(/^\w{5,11}$/g)) {
+      props.updateDinerInfo(props.diner);
       setValues(initialValues);
-      console.log(values);
     } else {
       setValues(initialValues);
       setHelperText({
-        username: "Invalid Username. Please try again.",
-        password: "Invalid Password. Please try again."
+        username: "Invalid Username. Please try again."
       });
-      return;
+
     }
   };
 
@@ -153,6 +130,26 @@ const UpdateDinerInfo = () => {
                 className={`${classes.paperItem}`}
                 fullWidth
                 required
+                helperText={helperText.email}
+                type="text"
+                label="Update email"
+                name="email"
+                value={values.email}
+                onChange={handleChange}
+                autoComplete="off"
+                InputProps={{
+                  endAdornment: (
+                    <IconButton>
+                      <AccountCircle />
+                    </IconButton>
+                  )
+                }}
+              />
+              {/* <TextField
+                variant="filled"
+                className={`${classes.paperItem}`}
+                fullWidth
+                required
                 helperText={helperText.password}
                 label="New Password"
                 type={showPassword ? "text" : "password"}
@@ -167,7 +164,7 @@ const UpdateDinerInfo = () => {
                     </IconButton>
                   )
                 }}
-              />
+              /> */}
 
               <TextField
                 variant="filled"
@@ -176,9 +173,29 @@ const UpdateDinerInfo = () => {
                 required
                 helperText={helperText.username}
                 type="text"
-                label="Update Location"
-                name="currentLocation"
-                value={values.currentLocation}
+                label="Update Location Lat"
+                name="user_lat"
+                value={values.user_lat}
+                onChange={handleChange}
+                autoComplete="off"
+                InputProps={{
+                  endAdornment: (
+                    <IconButton>
+                      <LocationSearchingIcon />
+                    </IconButton>
+                  )
+                }}
+              />
+              <TextField
+                variant="filled"
+                className={`${classes.paperItem}`}
+                fullWidth
+                required
+                helperText={helperText.username}
+                type="text"
+                label="Update Location Long"
+                name="user_long"
+                value={values.user_long}
                 onChange={handleChange}
                 autoComplete="off"
                 InputProps={{
@@ -191,7 +208,7 @@ const UpdateDinerInfo = () => {
               />
 
               <div>
-                <FormControl
+                {/* <FormControl
                   onSubmit={handleSubmit}
                   className={classes.formControl}
                 >
@@ -212,13 +229,13 @@ const UpdateDinerInfo = () => {
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
-                    <MenuItem value={"Oink & Moo BBQ"}>Oink & Moo BBQ</MenuItem>
+                     <MenuItem value={"Oink & Moo BBQ"}>Oink & Moo BBQ</MenuItem>
                     <MenuItem value={"Ms. Cheezious"}>Ms. Cheezious</MenuItem>
                     <MenuItem value={"The Cow and Curd"}>
                       The Cow and Curd
                     </MenuItem>
                   </Select>
-                </FormControl>
+                </FormControl> */}
               </div>
 
               <Button
@@ -237,4 +254,18 @@ const UpdateDinerInfo = () => {
   );
 };
 
-export default UpdateDinerInfo;
+const mapStateToProps = state => {
+  console.log("mapStateToProps", state);
+  return {
+    diner: state.auth.diner
+  }
+}
+
+const mapDispatchToProps = () => {
+  return {
+    fetchDinerInfo,
+    updateDinerInfo    
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps())(UpdateDinerInfo);
