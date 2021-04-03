@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+
+//material-UI
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
-import LocationSearchingIcon from "@material-ui/icons/LocationSearching";
-import { IconButton } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import LoginSignupNav from './../navs/LoginSignupNav';
 
-
+//router
 import { useHistory } from "react-router-dom";
-import {connect} from 'react-redux';
-import {operatorSignedUp} from '../../store/actions'
+
+//store
+import { connect } from 'react-redux';
+import { operatorSignedUp } from '../../store'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    padding:"4rem"
   },
   avatar: {
     margin: theme.spacing(1),
@@ -42,31 +45,14 @@ const initialValues = {
   username: "",
   password: "",
   email: "",
-  location: "",
-  trucks: []
+  role: "operator"
 };
 
 function OperatorSignup(props) {
   const classes = useStyles();
-  const [truckForm, setTruckForm] = useState("");
   const [values, setValues] = useState(initialValues);
-  const [location, setLocation] = useState("");
 
-  const {push} = useHistory();
-
-  useEffect(() => {
-    console.log(values);
-  }, [values]);
-
-  const addTruck = (e) => {
-    e.preventDefault();
-    setValues({ ...values, trucks: [...values.trucks, truckForm] });
-  };
-
-  const handelChanges = (e) => {
-    const { value } = e.target;
-    setTruckForm(value);
-  };
+  const { push } = useHistory();
 
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -82,25 +68,8 @@ function OperatorSignup(props) {
     ) {
     }
     props.operatorSignedUp(values);
-    push('/operator/login')
+    push('/')
   };
-
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-      console.log("Geolocation is not supported by this browser.");
-    }
-  }
-
-  function showPosition(position) {
-    setLocation(position.coords.latitude + "," + position.coords.longitude);
-  }
-  getLocation();
-
-  function locationSet() {
-    setValues({ ...values, location: location });
-  }
 
   return (
       <>
@@ -155,8 +124,8 @@ function OperatorSignup(props) {
                     value={values.email}
                 />
                 </Grid>
-                <Grid item xs={12}>
-                <TextField
+                {/* <Grid item xs={12}> */}
+                {/* <TextField
                     name="location"
                     variant="outlined"
                     required
@@ -173,9 +142,9 @@ function OperatorSignup(props) {
                         </IconButton>
                     )
                     }}
-                />
-                </Grid>
-                <Grid item xs={12} sm={6}>
+                /> */}
+                {/* </Grid> */}
+                {/* <Grid item xs={12} sm={6}>
                 <div>
                     <TextField
                     onChange={(e) => handelChanges(e)}
@@ -199,7 +168,7 @@ function OperatorSignup(props) {
                 >
                     Add Truck
                 </Button>
-                </Grid>
+                </Grid> */}
             </Grid>
             <Button
                 type="submit"
