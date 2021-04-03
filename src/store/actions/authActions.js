@@ -13,7 +13,7 @@ export const dinerSignedUp = (newDiner) => dispatch => {
     axiosWithBaseURL()
         .post(`/api/auth/register`, newDiner)
         .then(res => {
-            dispatch({ type: DINER_SIGNED_UP, payload: newDiner });
+            dispatch({ type: DINER_SIGNED_UP, payload: res.data.registered });
         })
         .catch(err => {
             console.log(err, err.message, err.response)
@@ -24,7 +24,7 @@ export const operatorSignedUp = (newOperator) => dispatch => {
     axiosWithBaseURL()
         .post(`/api/auth/register`, newOperator)
         .then(res => {
-            console.log(res);
+            dispatch({ type: OPERATOR_SIGNED_UP, payload: res.data.registered })
         })
         .catch(err => {
             console.log(err);
@@ -48,9 +48,9 @@ export const operatorLoggedIn = operator => dispatch => {
     axiosWithBaseURL()
         .post(`/api/auth/login`, operator)
         .then(res => {
-            // dispatch({ type: OPERATOR_LOGGED_IN });
-            // console.log(res);
+            console.log(res)
             localStorage.setItem("token", res.data.token);
+            dispatch({ type: OPERATOR_LOGGED_IN, payload: res.data.loggedIn });
         })
         .catch(err => {
             // dispatch({  });

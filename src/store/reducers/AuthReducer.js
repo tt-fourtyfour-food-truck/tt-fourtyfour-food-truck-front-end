@@ -8,9 +8,10 @@ const initialState = {
         username: ""
     },
     operator: {
-        username: '',
         email: '',
-        password: '',
+        role: "",
+        user_id: null,
+        username: '',
         trucksOwned: [] //ability to add multiple
     }
 };
@@ -40,21 +41,19 @@ export const AuthReducer = (state = initialState, action) => {
                     username: action.payload.username
                 }
             };
-
         case OPERATOR_LOGGED_IN:
-            return state;
+            return {
+                ...state,
+                operator: {
+                    ...state.diner,
+                    email: action.payload.email,
+                    role: action.payload.role,
+                    user_id: action.payload.user_id,
+                    username: action.payload.username
+                }
+            };
         case FETCH_DINER_INFO:
             return state;
-            // return {
-            //     ...state,
-            //     diner: {
-            //         ...state.diner,
-            //         email: action.payload.email,
-            //         role: action.payload.role,
-            //         user_id: action.payload.user_id,
-            //         username: action.payload.username
-            //     }
-            // }
         case LOGOUT: 
             return state;
 
